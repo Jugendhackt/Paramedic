@@ -20,6 +20,16 @@
         <div class="col-sm">
             <img height="80px" src="{%static '/img/1200px-MoWaS_logo.png' %}" alt="Bild von MoWaS" srcset="">
         </div>
+        {% for alarm in nina %}
+        <div class="">
+        <div class="card p-1 m-1" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{ alarm.i18nTitle.de }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ alarm.startDate }}</h6>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
     </div>
     
 </div>

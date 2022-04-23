@@ -3,8 +3,9 @@ from django.db import models
 import uuid
 
 class LTS_Meldung(models.Model):
-
-    uudi = models.UUIDField(unique=True, primary_key=True, default=uuid.uuid4())
+    def generate_uuid():
+        return uuid.uuid4()
+    uuid = models.UUIDField(unique=True, primary_key=True, default=generate_uuid)
     
     location_lat = models.FloatField()
     location_long = models.FloatField()
@@ -12,10 +13,12 @@ class LTS_Meldung(models.Model):
     #date = models.DateField()
     #time = models.TimeField()
 
-    #title = models.CharField(max_length=200)
+    wo = models.CharField(max_length=200)
+    wer = models.CharField(max_length=200)
+    was = models.CharField(max_length=200)
+    wie_viele = models.CharField(max_length=200)
 
-    #name_person = models.CharField(max_length=100)
-    #additional_information = models.CharField(max_length=300)
+    additional_information = models.CharField(max_length=300)
 
 
 

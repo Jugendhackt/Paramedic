@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core import serializers
+import json
 
 import requests
 
@@ -8,15 +9,14 @@ from paramedic.backend import models
 
 def new_acciedent_lts(request):
     if request.method == "POST":
-        models.LTS_Meldung(location_lat=123.0,location_long=123.0,).save()
-        print(request.body.decode("utf-8").split("\n"))
-        return HttpResponse(request)
+        data = request.body.decode("utf-8").split("\n")
+        models.LTS_Meldung(location_lat=data[0],location_long=data[1],wer=data[2],was=data[3],wie_viele=data[4],additional_information=data[5]).save()
+        return HttpResponse("message send")
     else:
         redirect("/")
 
 
 def index(request):
-    print(request)
     return render(request, "index.html")
 
 def app(request):
@@ -25,10 +25,21 @@ def app(request):
         url = "https://nina.api.proxy.bund.dev/api31/mowas/mapData.json"
 
         payload = ""
-        response = requests.request("GET", url, data=payload)
+        try:
+            response = requests.request("GET", url, data=payload)
+        
+            parsed_response = json.loads(response.content)
+        
+
+            list_response = []
+            for alarm in parsed_response:
+                list_response.append(alarm)
+        except:
+            print("error")
+            parsed_response = []
 
         state = {
-            "nina": response,
+            "nina": parsed_response,
             "username" : request.user.username
         }
         print(response.content)
