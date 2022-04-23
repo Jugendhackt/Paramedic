@@ -1,13 +1,13 @@
 {% extends "components/base.html" %}
 {% load static %}
 {% block header%}
-<script src="{%static '/js/nina.js' %}"></script>
+<script src="{%static '/js/worker.js' %}"></script>
 
 
 {% endblock header %}
 {% block content %}
 <div class="bg-primary bg-gradient">
-    <h1 class="p-4"><strong> Hallo {{ username }}!</strong></h1>    
+    <h1 class="p-4 text-light"><strong> Hallo {{ username }}!</strong></h1>    
 </div>
 <div class="m-4 p-3 bg-success bg-gradient rounded">
     <h4><strong>Es liegen gerade keine Einsätze vor.</strong></h2>

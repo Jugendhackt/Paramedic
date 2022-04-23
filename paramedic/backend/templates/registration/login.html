@@ -2,11 +2,11 @@
 {% load static %}
 {% block content %}
 	<br>
-<div class="container-sm">
+<div class="container-md row">
   
-  <div class="card ">
-  <div class="card-title text-center row">
-	  <h2 class="fw-bold">Einloggen</h2>
+  <div class="card col-md">
+  <div class="card-title ">
+	  <h2 class="fw-bold m-4">Einloggen</h2>
   </div>
     <form class="card-body px-md-4" method="post" accept="*">
       {% csrf_token %}

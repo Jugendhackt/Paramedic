@@ -25,13 +25,14 @@ SECRET_KEY = 'django-insecure-3^yf-_w*es#3$-^g57cc+$b09jtf%318@w342*cz67c70%2g3#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['172.22.231.133', 'localhost']
+ALLOWED_HOSTS = ['172.22.231.133', 'localhost', '192.168.2.227', '0.0.0.0']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'rest_framework',
+    'channels',
     'paramedic',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -134,4 +135,12 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ]
+}
+
+ASGI_APPLICATION = "paramedic.asgi.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
 }
