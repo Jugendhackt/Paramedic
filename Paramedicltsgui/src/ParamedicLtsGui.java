@@ -1,8 +1,19 @@
+
+import java.io.BufferedReader;
+import java.io.IOError;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author hendr
@@ -148,6 +159,36 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbeendenActionPerformed
 
     private void btnbestaetigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbestaetigenActionPerformed
+        String wo = txfwoeingabe.getText();
+        String wer = txfwereingabe.getText();
+        String was = txfwaseingabe.getText();
+        String wieviele = txfwievieleeingabe.getText();
+        String anmerkung = txfanmerkungeingabe.getText();
+        try {
+            URL url = new URL("http://172.22.231.133:8080/");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("POST");
+            con.setRequestProperty("Content-Type", "application/json; utf-8");
+            con.setRequestProperty("Accept", "application/json");
+            con.setDoOutput(true);
+            String jsonInputString = wo + "\n" + wer + "\n" + was + "\n" + wieviele + "\n" + anmerkung;
+            try (OutputStream os = con.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                os.write(input, 0, input.length);
+                os.flush();
+            }
+            try (BufferedReader br = new BufferedReader(
+                    new InputStreamReader(con.getInputStream(), "utf-8"))) {
+                StringBuilder response = new StringBuilder();
+                String responseLine = null;
+                while ((responseLine = br.readLine()) != null) {
+                    response.append(responseLine.trim());
+                }
+                System.out.println(response.toString());
+       }
+        } catch (IOException ex) {
+            Logger.getLogger(ParamedicLtsGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
         btnloeschenActionPerformed(evt);
     }//GEN-LAST:event_btnbestaetigenActionPerformed
 
