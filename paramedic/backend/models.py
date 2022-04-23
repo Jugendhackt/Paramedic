@@ -1,20 +1,21 @@
-from typing_extensions import Required
+#from typing_extensions import Required
 from django.db import models
+import uuid
 
 class LTS_Meldung(models.Model):
 
-    uudi = models.UUIDField(unique=True, primary_key=True)
+    uudi = models.UUIDField(unique=True, primary_key=True, default=uuid.uuid4())
     
-    location_lat = models.FloatField(Required)
-    location_long = models.FloatField(Required)
+    location_lat = models.FloatField()
+    location_long = models.FloatField()
     
-    date = models.DateField()
-    time = models.TimeField()
+    #date = models.DateField()
+    #time = models.TimeField()
 
-    title = models.CharField(max_length=200)
+    #title = models.CharField(max_length=200)
 
-    name_person = models.CharField(max_length=100)
-    additional_information = models.CharField(max_length=300)
+    #name_person = models.CharField(max_length=100)
+    #additional_information = models.CharField(max_length=300)
 
 
 
@@ -27,6 +28,7 @@ class Institutions(models.Model):
     ]
 
     insitution_type = models.IntegerField(choices=insitution_type_choises)
+
 
 class Vehicles(models.Model):
     emg_vehicles_choises = [
@@ -59,3 +61,8 @@ class Vehicles(models.Model):
     patient_capacity = models.IntegerField()
 
     current_status = models.IntegerField(choices=emergency_status_choises)
+    current_alarm = models.ForeignKey(LTS_Meldung, on_delete=models.CASCADE)
+
+    institution = models.ForeignKey(Institutions, on_delete=models.CASCADE)
+
+

@@ -1,0 +1,39 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block content %}
+	<br>
+<div class="container-md">
+  
+  <div class="card ">
+  <div class="card-title text-center row">
+	  <h2 class="fw-bold">Einloggen</h2>
+  </div>
+    <form class="card-body px-lg-4" method="post" accept="*">
+      {% csrf_token %}
+        {% for field in form %}
+            <div class="px-lg-4">
+    		<label for="{{ field.id_for_label }}" class="form-label">{{ field.html_name }}</label>
+				<input
+						type="{{ field.html_name }}"
+						class="form-control"
+						id="{{ field.id_for_label }}"
+						maxlength="30"
+						name="{{ field.html_name }}"
+						placeholder="{{ field.html_name }}"
+						aria-label="{{ field.html_name }}"
+						aria-describedby="basic-addon1"
+				/>
+				<h6 class=" fw-normal">{{ field.errors }}</h6>
+				<br>
+            </div>
+        {% endfor %}
+		  <button type="submit" class="btn btn-primary px-lg-5 mx-lg-4 justify-content-center">
+			  Login
+		  </button>
+		<br>
+		<br>
+    </form>
+  </div>
+</div>
+	<br>
+{% endblock content %}
