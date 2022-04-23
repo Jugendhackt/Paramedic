@@ -24,9 +24,24 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
     /**
      * Creates new form ParamedicLtsGui
      */
+        private String username = null;
+        private String passwort = null;
     public ParamedicLtsGui() {
         initComponents();
-        //btntest.setVisible(false);
+        btntest.setVisible(false);
+        btnadresse.setVisible(false);
+        btnbestaetigen.setVisible(false);
+        btnloeschen.setVisible(false);
+//        l4.setVisible(false);
+//        l5.setVisible(false);
+//        l6.setVisible(false);
+//        l7.setVisible(false);
+//        l8.setVisible(false);
+//        txfwoeingabe.setVisible(false);
+//        txfwereingabe.setVisible(false);
+//        txfwaseingabe.setVisible(false);
+//        txfwievieleeingabe.setVisible(false);
+//        txfanmerkungeingabe.setVisible(false);
     }
 
     /**
@@ -38,33 +53,40 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        l4 = new javax.swing.JLabel();
         txfwoeingabe = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        l5 = new javax.swing.JLabel();
         txfwaseingabe = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        l7 = new javax.swing.JLabel();
         txfwereingabe = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        l6 = new javax.swing.JLabel();
         txfwievieleeingabe = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        l8 = new javax.swing.JLabel();
         txfanmerkungeingabe = new javax.swing.JTextField();
         btnbestaetigen = new javax.swing.JButton();
         btnloeschen = new javax.swing.JButton();
         btnbeenden = new javax.swing.JButton();
         btnadresse = new javax.swing.JButton();
         btntest = new javax.swing.JButton();
+        l1 = new javax.swing.JLabel();
+        txfusername = new javax.swing.JTextField();
+        btnlogin = new javax.swing.JButton();
+        txfpasswort = new javax.swing.JTextField();
+        l2 = new javax.swing.JLabel();
+        l3 = new javax.swing.JLabel();
+        btnlogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Wo");
+        l4.setText("Wo");
 
-        jLabel2.setText("Wer");
+        l5.setText("Wer");
 
-        jLabel3.setText("Wie viele");
+        l7.setText("Wie viele");
 
-        jLabel4.setText("Was");
+        l6.setText("Was");
 
-        jLabel5.setText("Anmerkung");
+        l8.setText("Anmerkung");
 
         btnbestaetigen.setText("Bestätigen");
         btnbestaetigen.addActionListener(new java.awt.event.ActionListener() {
@@ -101,70 +123,119 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
             }
         });
 
+        l1.setText("Login");
+
+        btnlogin.setText("Login");
+        btnlogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnloginActionPerformed(evt);
+            }
+        });
+
+        l2.setText("Benutzername");
+
+        l3.setText("Passwort");
+
+        btnlogout.setText("Logout");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(l8)
+                                    .addComponent(l6)
+                                    .addComponent(l4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(l5)
+                                    .addComponent(l7))
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txfanmerkungeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txfwievieleeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txfwaseingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txfwoeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txfwereingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnlogout)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnbeenden)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnloeschen)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnbestaetigen)))
+                        .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txfanmerkungeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txfwievieleeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txfwaseingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txfwoeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txfwereingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btntest)
+                            .addComponent(l2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(l3, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(l1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(63, 63, 63))
+                            .addComponent(txfusername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnlogin)
+                                .addComponent(txfpasswort, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(btnadresse)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnbeenden)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnloeschen)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnbestaetigen)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                        .addComponent(btntest)))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txfwoeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txfwereingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnadresse)
+                    .addComponent(btntest))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(l4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfwoeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(l5)
+                            .addComponent(txfwereingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txfwaseingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l6))
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txfwievieleeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l7)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(l1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txfusername, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l2))
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txfpasswort, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(l3))
+                        .addGap(28, 28, 28)
+                        .addComponent(btnlogin)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txfwaseingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txfwievieleeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(l8)
                     .addComponent(txfanmerkungeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnbestaetigen)
                     .addComponent(btnloeschen)
                     .addComponent(btnbeenden)
-                    .addComponent(btnadresse)
-                    .addComponent(btntest))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addComponent(btnlogout))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -218,14 +289,22 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(ParamedicLtsGui.class.getName()).log(Level.SEVERE, null, ex);
         }try{
-        FileWriter fw;
-        fw = new FileWriter("einsatzt.txt");
-        fw.write("Wo: "+wo+"\nwo: "+wo+"\nwer: "+wer+"\nwie viele: "+wieviele+"\nanmerkung: "+anmerkung);
-        fw.close();
+            FileWriter fw;
+            fw = new FileWriter("einsatzt.txt");
+            fw.write("Wo: "+wo+"\nwo: "+wo+"\nwer: "+wer+"\nwie viele: "+wieviele+"\nanmerkung: "+anmerkung);
+            fw.close();
         }catch(IOException ioe){
             System.out.println("ioException");
         }
-        btnadresseActionPerformed(evt);
+        try{
+            String url =  "https://www.openstreetmap.org/?mlat="+slat+"&mlon="+slon+"#map=17/"+slat+"/"+slon;
+            Runtime rt = Runtime.getRuntime();
+            rt.exec("rundll32 url.dll,FileProtocolHandler " + url).waitFor();
+        } catch (IOException ioe) {
+            System.out.println("Fehler");
+        } catch (InterruptedException ie) {
+            System.out.println("Fehler");
+        }
     }//GEN-LAST:event_btnbestaetigenActionPerformed
 
     private void btnadresseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadresseActionPerformed
@@ -249,6 +328,19 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
             System.out.println("Fehler");
         }
     }//GEN-LAST:event_btntestActionPerformed
+
+    private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
+        username = txfusername.getText();
+        passwort = txfpasswort.getText();
+        btnbestaetigen.setVisible(true);
+        btnloeschen.setVisible(true);
+        btnlogin.setVisible(false);
+        txfusername.setVisible(false);
+        txfpasswort.setVisible(false);
+        l1.setVisible(false);
+        l2.setVisible(false);
+        l3.setVisible(false);
+    }//GEN-LAST:event_btnloginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,13 +382,20 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
     private javax.swing.JButton btnbeenden;
     private javax.swing.JButton btnbestaetigen;
     private javax.swing.JButton btnloeschen;
+    private javax.swing.JButton btnlogin;
+    private javax.swing.JButton btnlogout;
     private javax.swing.JButton btntest;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel l1;
+    private javax.swing.JLabel l2;
+    private javax.swing.JLabel l3;
+    private javax.swing.JLabel l4;
+    private javax.swing.JLabel l5;
+    private javax.swing.JLabel l6;
+    private javax.swing.JLabel l7;
+    private javax.swing.JLabel l8;
     private javax.swing.JTextField txfanmerkungeingabe;
+    private javax.swing.JTextField txfpasswort;
+    private javax.swing.JTextField txfusername;
     private javax.swing.JTextField txfwaseingabe;
     private javax.swing.JTextField txfwereingabe;
     private javax.swing.JTextField txfwievieleeingabe;
