@@ -23,5 +23,5 @@ urlpatterns = [
     path('api/lts/new_accident',  new_acciedent_lts),
     path('', index),
     path('', include('django.contrib.auth.urls')),
-    path('accounts/profile', app())
+    path('accounts/profile/', app)
 ]

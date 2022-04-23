@@ -18,4 +18,12 @@ def index(request):
     return render(request, "index.html")
 
 def app(request):
-    return render(request, "app/index.html")
+
+    if request.user.is_authenticated:
+        state = {
+            "username" : request.user.username
+        }
+        return render(request, "app/index.html", state)    
+
+    else: 
+        return redirect("/login")

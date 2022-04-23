@@ -24,15 +24,38 @@
     </nav>
 {% endblock %}
 {% block content %}
-<figure class="figure ceenter">
-    <img src="{%static "img/NSW_Ambulance_Australia.png"  %}" alt="" srcset="" class="img-fluid rounded mx-auto d-block">
-    <figcaption>NSW Ambulance Australia von Helitak430 unter CC BY-SA 4.0</figcaption>
-</figure>    
-    <div class="text-center">
-		<h1>Paramedic</h1>
-		<p class="lead m-2">
-			Die offene Alternative zu ....
-		</p>
-	</div>
+<div class="container">
+    <div class="row">
+      <div class="col-xl">
+            <figure class="figure text-center">
+                <img src="{%static "img/NSW_Ambulance_Australia.png"  %}" alt="" srcset="" class="img-fluid rounded mx-auto d-block">
+                <figcaption class="figure-caption">NSW Ambulance Australia von Helitak430 unter CC BY-SA 4.0</figcaption>
+            </figure> 
+        </div>
+      <div class="col-xl p-6 container "> 
+        <div class="text-center bg-secondary rounded">
+            <h1>Paramedic</h1>
+            <p class="lead m-2">
+                Die offene Alternative um Alarme und Nachrichten zeitsensitiv zu senden.
+            </p>
+	    </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="col-md px-lg-4">
+        <h1>
+            Problem / Fragestellung
+        </h1>
+        <p>
+            <ul>
+                <li>geschlossene Ökosysteme in kritischer Infrastruktur</li>
+                <li>nach einmaligem Einrichten entseht eine Abhängigkeit von einem Anbieter </li>
+                <li>größe Kostenpunkte für freiwillige Organisationen(Freiwillige Feuerwehr oder Rettungsdienst)</li>
+                <li>es wird ein Handy(aktuelles IOS/Android) vorrausgesetzt sonst keine Teilnahme</li>
+            </ul>
+        </p>
+  </div>
+
 
 {% endblock content %}
