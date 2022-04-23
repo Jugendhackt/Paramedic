@@ -1,10 +1,26 @@
 {% extends "components/base.html" %}
 {% load static %}
+{% block header%}
+<script src="{%static '/js/nina.js' %}"></script>
+
+
+{% endblock header %}
 {% block content %}
 <div class="bg-primary bg-gradient">
     <h1 class="p-3 "><strong> Hallo {{ username }}!</strong></h1>    
 </div>
-<div class="m-2 p-3 bg-success bg-gradient rounded">
+<div class="m-4 p-3 bg-success bg-gradient rounded">
     <h4><strong>Es liegen gerade keine Einsätze vor.</strong></h2>
+</div>
+<div>
+    <div class="row m-4 p-3 bg-gradient bg-warning rounded">
+        <div class="col-sm">
+            <h4>Informationen von</h4>
+        </div>
+        <div class="col-sm">
+            <img height="80px" src="{%static '/img/1200px-MoWaS_logo.png' %}" alt="Bild von MoWaS" srcset="">
+        </div>
+    </div>
+    
 </div>
 {% endblock content %}
