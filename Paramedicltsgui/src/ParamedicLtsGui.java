@@ -1,8 +1,19 @@
+
+import java.io.BufferedReader;
+import java.io.IOError;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author hendr
@@ -26,11 +37,51 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txforteingabe = new javax.swing.JTextField();
+        txfwoeingabe = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txfwaseingabe = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txfwereingabe = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txfwievieleeingabe = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txfanmerkungeingabe = new javax.swing.JTextField();
+        btnbestaetigen = new javax.swing.JButton();
+        btnloeschen = new javax.swing.JButton();
+        btnbeenden = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Ort");
+        jLabel1.setText("Wo");
+
+        jLabel2.setText("Wer");
+
+        jLabel3.setText("Wie viele");
+
+        jLabel4.setText("Was");
+
+        jLabel5.setText("Anmerkung");
+
+        btnbestaetigen.setText("Bestätigen");
+        btnbestaetigen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbestaetigenActionPerformed(evt);
+            }
+        });
+
+        btnloeschen.setText("Löschen");
+        btnloeschen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnloeschenActionPerformed(evt);
+            }
+        });
+
+        btnbeenden.setText("Beenden");
+        btnbeenden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbeendenActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -38,10 +89,28 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(txforteingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(579, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnbeenden)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnloeschen)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnbestaetigen))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txfanmerkungeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfwievieleeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfwaseingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfwoeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfwereingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -49,12 +118,79 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txforteingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(481, Short.MAX_VALUE))
+                    .addComponent(txfwoeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txfwereingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txfwaseingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txfwievieleeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txfanmerkungeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnbestaetigen)
+                    .addComponent(btnloeschen)
+                    .addComponent(btnbeenden))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnloeschenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloeschenActionPerformed
+        txfanmerkungeingabe.setText("");
+        txfwaseingabe.setText("");
+        txfwereingabe.setText("");
+        txfwievieleeingabe.setText("");
+        txfwoeingabe.setText("");
+    }//GEN-LAST:event_btnloeschenActionPerformed
+
+    private void btnbeendenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbeendenActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnbeendenActionPerformed
+
+    private void btnbestaetigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbestaetigenActionPerformed
+        String wo = txfwoeingabe.getText();
+        String wer = txfwereingabe.getText();
+        String was = txfwaseingabe.getText();
+        String wieviele = txfwievieleeingabe.getText();
+        String anmerkung = txfanmerkungeingabe.getText();
+        try {
+            URL url = new URL("http://172.22.231.133:8080/");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("POST");
+            con.setRequestProperty("Content-Type", "application/json; utf-8");
+            con.setRequestProperty("Accept", "application/json");
+            con.setDoOutput(true);
+            String jsonInputString = wo + "\n" + wer + "\n" + was + "\n" + wieviele + "\n" + anmerkung;
+            try (OutputStream os = con.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                os.write(input, 0, input.length);
+                os.flush();
+            }
+            try (BufferedReader br = new BufferedReader(
+                    new InputStreamReader(con.getInputStream(), "utf-8"))) {
+                StringBuilder response = new StringBuilder();
+                String responseLine = null;
+                while ((responseLine = br.readLine()) != null) {
+                    response.append(responseLine.trim());
+                }
+                System.out.println(response.toString());
+       }
+        } catch (IOException ex) {
+            Logger.getLogger(ParamedicLtsGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        btnloeschenActionPerformed(evt);
+    }//GEN-LAST:event_btnbestaetigenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,7 +228,18 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnbeenden;
+    private javax.swing.JButton btnbestaetigen;
+    private javax.swing.JButton btnloeschen;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField txforteingabe;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField txfanmerkungeingabe;
+    private javax.swing.JTextField txfwaseingabe;
+    private javax.swing.JTextField txfwereingabe;
+    private javax.swing.JTextField txfwievieleeingabe;
+    private javax.swing.JTextField txfwoeingabe;
     // End of variables declaration//GEN-END:variables
 }
