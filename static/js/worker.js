@@ -8,8 +8,10 @@ chatSocket.onopen = function(e){
 
 }
 chatSocket.onmessage = function(e) {
-    const data = JSON.parse(e.data);
-    console.log(data);
+    //const data = JSON.parse(e.data);
+    document.getElementById('alarm_display').innerHTML = e.data
+    document.getElementById('alarm_display').className = "m-4 p-3 bg-success bg-gradient rounded bg-error"
+    console.log(e);
 };
 
 chatSocket.onclose = function(e) {

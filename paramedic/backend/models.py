@@ -3,7 +3,7 @@ from django.db import models
 import uuid
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from consumer import AlarmConsumer
+from paramedic.backend.consumer import AlarmConsumer
 
 class LTS_Meldung(models.Model):
     def generate_uuid():
@@ -26,7 +26,8 @@ class LTS_Meldung(models.Model):
 @receiver(post_save, sender=LTS_Meldung)
 def trigger_alarm(sender, instance, created, **kwargs):
     print("hello")
-    channel_layer.group_send
+    AlarmConsumer().send("test123")
+    #async_to_sync(channel_layer.send)("channel_name", {"test":"test"})
 
 
 class Institutions(models.Model):

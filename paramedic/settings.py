@@ -139,6 +139,8 @@ REST_FRAMEWORK = {
 
 ASGI_APPLICATION = "paramedic.asgi.application"
 
+
+## remove in prod 
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer"
