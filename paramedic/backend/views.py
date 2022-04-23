@@ -9,8 +9,10 @@ from paramedic.backend import models
 
 def new_acciedent_lts(request):
     if request.method == "POST":
+
         data = request.body.decode("utf-8").split("\n")
-        models.LTS_Meldung(location_lat=data[0],location_long=data[1],wer=data[2],was=data[3],wie_viele=data[4],additional_information=data[5]).save()
+        print(data)
+        models.LTS_Meldung(location_lat=data[0], location_long=data[1], wer=data[2], was=data[3], wie_viele=data[4], additional_information=data[5]).save()
         return HttpResponse("message send")
     else:
         redirect("/")

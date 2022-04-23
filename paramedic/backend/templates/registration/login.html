@@ -2,13 +2,13 @@
 {% load static %}
 {% block content %}
 	<br>
-<div class="container-md">
+<div class="container-sm">
   
   <div class="card ">
   <div class="card-title text-center row">
 	  <h2 class="fw-bold">Einloggen</h2>
   </div>
-    <form class="card-body px-lg-4" method="post" accept="*">
+    <form class="card-body px-md-4" method="post" accept="*">
       {% csrf_token %}
         {% for field in form %}
             <div class="px-lg-4">

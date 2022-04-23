@@ -7,32 +7,41 @@
 {% endblock header %}
 {% block content %}
 <div class="bg-primary bg-gradient">
-    <h1 class="p-3 "><strong> Hallo {{ username }}!</strong></h1>    
+    <h1 class="p-4"><strong> Hallo {{ username }}!</strong></h1>    
 </div>
 <div class="m-4 p-3 bg-success bg-gradient rounded">
     <h4><strong>Es liegen gerade keine Einsätze vor.</strong></h2>
 </div>
 <div>
-    <div class="row m-4 p-3 bg-gradient bg-warning rounded">
+    <div class=" m-4 p-3 bg-gradient bg-warning rounded">
+        <div class="row">
+
+
         <div class="col-sm">
             <h4><strong>Informationen von</strong></h4>
         </div>
         <div class="col-sm">
             <img height="80px" src="{%static '/img/1200px-MoWaS_logo.png' %}" alt="Bild von MoWaS" srcset="">
         </div>
+    </div>
+        <br>
+        <div class="row">
+            
         {% for alarm in nina %}
 
         <div class="card p-2 m-1" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">{{ alarm.i18nTitle.de }}</h5>
               <h6 class="card-subtitle mb-2 text-muted">{{ alarm.type }}</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text">Beginn: {{ alarm.startDate }}  </p>
               <a href="https://nina.api.proxy.bund.dev/api31/warnings/{{ alarm.id }}.json" class="card-link">mehr Informationen</a>
             </div>
           </div>
         
         {% endfor %}
+
     </div>
+</div>
     
 </div>
 {% endblock content %}

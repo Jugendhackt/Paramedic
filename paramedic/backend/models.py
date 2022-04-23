@@ -13,7 +13,6 @@ class LTS_Meldung(models.Model):
     #date = models.DateField()
     #time = models.TimeField()
 
-    wo = models.CharField(max_length=200)
     wer = models.CharField(max_length=200)
     was = models.CharField(max_length=200)
     wie_viele = models.CharField(max_length=200)
