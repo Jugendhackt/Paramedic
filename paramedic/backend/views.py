@@ -23,7 +23,9 @@ def app(request):
         state = {
             "username" : request.user.username
         }
-        return render(request, "app/index.html", state)    
+        response = render(request, "app/index.html", state)
+        response["Access-Control-Allow-Origin"] = "*"
+        return response
 
     else: 
         return redirect("/login")
