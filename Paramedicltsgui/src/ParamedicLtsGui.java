@@ -49,6 +49,7 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
         btnbestaetigen = new javax.swing.JButton();
         btnloeschen = new javax.swing.JButton();
         btnbeenden = new javax.swing.JButton();
+        btnadresse = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,6 +84,13 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
             }
         });
 
+        btnadresse.setText("Adresse");
+        btnadresse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnadresseActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,6 +99,8 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnadresse)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnbeenden)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnloeschen)
@@ -110,7 +120,7 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
                             .addComponent(txfwaseingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txfwoeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txfwereingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,8 +149,9 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnbestaetigen)
                     .addComponent(btnloeschen)
-                    .addComponent(btnbeenden))
-                .addContainerGap(45, Short.MAX_VALUE))
+                    .addComponent(btnbeenden)
+                    .addComponent(btnadresse))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -165,7 +176,7 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
         String wieviele = txfwievieleeingabe.getText();
         String anmerkung = txfanmerkungeingabe.getText();
         try {
-            URL url = new URL("http://172.22.231.133:8080/");
+            URL url = new URL("http://172.22.231.133:8080/api/lts/new_accident");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
             con.setRequestProperty("Content-Type", "application/json; utf-8");
@@ -178,7 +189,7 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
                 os.flush();
             }
             try (BufferedReader br = new BufferedReader(
-                    new InputStreamReader(con.getInputStream(), "utf-8"))) {
+                new InputStreamReader(con.getInputStream(), "utf-8"))) {
                 StringBuilder response = new StringBuilder();
                 String responseLine = null;
                 while ((responseLine = br.readLine()) != null) {
@@ -189,9 +200,23 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(ParamedicLtsGui.class.getName()).log(Level.SEVERE, null, ex);
         }
-        btnloeschenActionPerformed(evt);
+        btnadresseActionPerformed(evt);
     }//GEN-LAST:event_btnbestaetigenActionPerformed
 
+    private void btnadresseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadresseActionPerformed
+        try{
+        String wo = txfwoeingabe.getText();
+        String woneu = wo.replaceAll(" ", "+");
+        String url = "https://www.google.com/maps/place/"+woneu+"/";
+        Runtime rt = Runtime.getRuntime();
+        rt.exec("rundll32 url.dll,FileProtocolHandler " + url).waitFor();
+        }catch(IOException ioe){
+            System.out.println("Fehler");
+        }catch(InterruptedException ie){
+            System.out.println("Fehler");
+        }
+    }//GEN-LAST:event_btnadresseActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -228,6 +253,7 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnadresse;
     private javax.swing.JButton btnbeenden;
     private javax.swing.JButton btnbestaetigen;
     private javax.swing.JButton btnloeschen;
