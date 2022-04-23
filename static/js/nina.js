@@ -1,7 +1,7 @@
 resolve_data();
 
 async function get_nina_results(){
-   return await fetch("https://nina.api.proxy.bund.dev/api31/mowas/mapData.json", {mode:'no-cors'})
+   return await fetch("https://nina.api.proxy.bund.dev/api31/mowas/mapData.json", )
 }
 async function resolve_data(){
     data = await get_nina_results();

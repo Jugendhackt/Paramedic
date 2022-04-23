@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core import serializers
 
+import requests
+
 from paramedic.backend import models
 
 def new_acciedent_lts(request):
@@ -20,12 +22,18 @@ def index(request):
 def app(request):
 
     if request.user.is_authenticated:
+        url = "https://nina.api.proxy.bund.dev/api31/mowas/mapData.json"
+
+        payload = ""
+        response = requests.request("GET", url, data=payload)
+
         state = {
+            "nina": response,
             "username" : request.user.username
         }
-        response = render(request, "app/index.html", state)
-        response["Access-Control-Allow-Origin"] = "*"
-        return response
+        print(response.content)
+
+        return render(request, "app/index.html", state)
 
     else: 
         return redirect("/login")
