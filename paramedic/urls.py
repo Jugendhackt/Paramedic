@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from paramedic.backend.views import new_acciedent_lts, index
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/lts/new_accident',  new_acciedent_lts),
+    path('', index)
 ]

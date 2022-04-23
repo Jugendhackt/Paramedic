@@ -1,3 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.core import serializers
 
-# Create your views here.
+
+def new_acciedent_lts(request):
+    if request.method == "POST":
+        
+        print(request.body.decode("utf-8").split("\n"))
+        return HttpResponse(request)
+    else:
+        redirect("/")
+
+
+def index(request):
+    print(request)
+    return HttpResponse(request)
