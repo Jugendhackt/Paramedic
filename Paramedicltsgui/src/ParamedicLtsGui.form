@@ -25,10 +25,22 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="48" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Component id="txforteingabe" min="-2" pref="360" max="-2" attributes="0"/>
-              <EmptySpace pref="579" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="txfanmerkungeingabe" alignment="0" min="-2" pref="360" max="-2" attributes="0"/>
+                  <Component id="txfwievieleeingabe" min="-2" pref="360" max="-2" attributes="0"/>
+                  <Component id="txfwaseingabe" min="-2" pref="360" max="-2" attributes="0"/>
+                  <Component id="txfwoeingabe" min="-2" pref="360" max="-2" attributes="0"/>
+                  <Component id="txfwereingabe" min="-2" pref="360" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="558" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -38,9 +50,29 @@
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                  <Component id="txforteingabe" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="txfwoeingabe" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="481" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txfwereingabe" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txfwaseingabe" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txfwievieleeingabe" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txfanmerkungeingabe" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="255" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -48,10 +80,38 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ort"/>
+        <Property name="text" type="java.lang.String" value="Wo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txforteingabe">
+    <Component class="javax.swing.JTextField" name="txfwoeingabe">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Wer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txfwaseingabe">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Wie viele"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txfwereingabe">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Was"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txfwievieleeingabe">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Anmerkung"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txfanmerkungeingabe">
     </Component>
   </SubComponents>
 </Form>
