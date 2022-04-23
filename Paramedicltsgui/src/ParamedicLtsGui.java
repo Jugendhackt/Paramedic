@@ -1,5 +1,6 @@
 
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -156,14 +157,14 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txfanmerkungeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnbestaetigen)
                     .addComponent(btnloeschen)
                     .addComponent(btnbeenden)
                     .addComponent(btnadresse)
                     .addComponent(btntest))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -187,6 +188,11 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
         String was = txfwaseingabe.getText();
         String wieviele = txfwievieleeingabe.getText();
         String anmerkung = txfanmerkungeingabe.getText();
+        String woneu = wo.replaceAll(" ", "+");
+        Karte karte = new Karte();
+        karte.abfragen(woneu);
+        String slat = Double.toString(karte.getlat());
+        String slon = Double.toString(karte.getlon());
         try {
             URL url = new URL("http://172.22.231.133:8080/api/lts/new_accident");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -194,7 +200,7 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
             con.setRequestProperty("Content-Type", "application/json; utf-8");
             con.setRequestProperty("Accept", "application/json");
             con.setDoOutput(true);
-            String jsonInputString = wo + "\n" + wer + "\n" + was + "\n" + wieviele + "\n" + anmerkung;
+            String jsonInputString = slat +"\n" + slon + "\n" + wer + "\n" + was + "\n" + wieviele + "\n" + anmerkung;
             try (OutputStream os = con.getOutputStream()) {
                 byte[] input = jsonInputString.getBytes("utf-8");
                 os.write(input, 0, input.length);
@@ -211,6 +217,13 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
             }
         } catch (IOException ex) {
             Logger.getLogger(ParamedicLtsGui.class.getName()).log(Level.SEVERE, null, ex);
+        }try{
+        FileWriter fw;
+        fw = new FileWriter("einsatzt.txt");
+        fw.write("Wo: "+wo+"\nwo: "+wo+"\nwer: "+wer+"\nwie viele: "+wieviele+"\nanmerkung: "+anmerkung);
+        fw.close();
+        }catch(IOException ioe){
+            System.out.println("ioException");
         }
         btnadresseActionPerformed(evt);
     }//GEN-LAST:event_btnbestaetigenActionPerformed

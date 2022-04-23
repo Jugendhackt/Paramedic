@@ -87,7 +87,7 @@
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txfanmerkungeingabe" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnbestaetigen" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnloeschen" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -95,7 +95,7 @@
                   <Component id="btnadresse" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btntest" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
