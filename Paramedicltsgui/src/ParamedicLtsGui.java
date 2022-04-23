@@ -26,12 +26,20 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
      */
         private String username = null;
         private String passwort = null;
+        private String urlid1 = "http://172.22.231.133:8080";
+        private String urlid2 = "http://180.32.240.145:8080";
+        private String urlid3 = "http://120.15.251.112:8080";
     public ParamedicLtsGui() {
         initComponents();
         btntest.setVisible(false);
         btnadresse.setVisible(false);
         btnbestaetigen.setVisible(false);
         btnloeschen.setVisible(false);
+        cb.setVisible(false);
+        cb.addItem("Sever Auswählen");
+        cb.addItem(urlid1);
+        cb.addItem(urlid2);
+        cb.addItem(urlid3);
 //        l4.setVisible(false);
 //        l5.setVisible(false);
 //        l6.setVisible(false);
@@ -75,6 +83,7 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
         l2 = new javax.swing.JLabel();
         l3 = new javax.swing.JLabel();
         btnlogout = new javax.swing.JButton();
+        cb = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -169,25 +178,30 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
                                 .addComponent(btnloeschen)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnbestaetigen)))
-                        .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(l3, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(l1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(63, 63, 63))
-                            .addComponent(txfusername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnlogin)
-                                .addComponent(txfpasswort, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(l2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(l3, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(48, 48, 48)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(l1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(63, 63, 63))
+                                    .addComponent(txfusername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btnlogin)
+                                        .addComponent(txfpasswort, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cb, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnadresse)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btntest)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +242,8 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(l8)
-                    .addComponent(txfanmerkungeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txfanmerkungeingabe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnbestaetigen)
@@ -264,8 +279,9 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
         karte.abfragen(woneu);
         String slat = Double.toString(karte.getlat());
         String slon = Double.toString(karte.getlon());
+        String urlid = String.valueOf(cb.getSelectedItem());
         try {
-            URL url = new URL("http://172.22.231.133:8080/api/lts/new_accident");
+            URL url = new URL(urlid+"/api/lts/new_accident");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
             con.setRequestProperty("Content-Type", "application/json; utf-8");
@@ -340,6 +356,7 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
         l1.setVisible(false);
         l2.setVisible(false);
         l3.setVisible(false);
+        cb.setVisible(true);
     }//GEN-LAST:event_btnloginActionPerformed
 
     /**
@@ -385,6 +402,7 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
     private javax.swing.JButton btnlogin;
     private javax.swing.JButton btnlogout;
     private javax.swing.JButton btntest;
+    private javax.swing.JComboBox<String> cb;
     private javax.swing.JLabel l1;
     private javax.swing.JLabel l2;
     private javax.swing.JLabel l3;
