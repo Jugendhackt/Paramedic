@@ -43,7 +43,7 @@ window.addEventListener('load', () => {
             alarm_display.classList.add("bg-danger")
             alarm_display.classList.add("text-light")
 
-            document.getElementById('map_alarm').src = "https://maps.geoapify.com/v1/staticmap?style=osm-bright-smooth&width=600&height=400&center=lonlat%3A"+ data.long + "%2C" + data.lat + "&zoom=14.3497&marker=lonlat%3A"+ data.long + "%2C" + data.lat + "%3Btype%3Aawesome%3Bcolor%3A%23bb3f73%3Bsize%3Ax-large&apiKey=824a3c5ffaf14051ad87a7a4b1e97720";
+            document.getElementById('map_alarm').src = "https://maps.geoapify.com/v1/staticmap?style=osm-bright-smooth&width=800&height=300&center=lonlat%3A"+ data.long + "%2C" + data.lat + "&zoom=14.3497&marker=lonlat%3A"+ data.long + "%2C" + data.lat + "%3Btype%3Aawesome%3Bcolor%3A%23bb3f73%3Bsize%3Ax-large&apiKey=824a3c5ffaf14051ad87a7a4b1e97720";
             document.getElementById('alarm_info').innerHTML = "Wie viel Personen sind betroffen: " + data.wie_viele + "<br/> Weitere Anmerkungen:"  + data.anmerkungen
         };
 
