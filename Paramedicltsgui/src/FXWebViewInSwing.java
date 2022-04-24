@@ -34,7 +34,6 @@ import javax.swing.JPanel;
 
         frame.add(BorderLayout.CENTER, jfxPanel);
         frame.add(BorderLayout.SOUTH, buttonPanel);
-
         frame.setSize(1600, 800);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);

@@ -341,19 +341,21 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
         }catch(IOException ioe){
             System.out.println("ioException");
         }
-//        try{
             String url =  "https://www.openstreetmap.org/?mlat="+slat+"&mlon="+slon+"#map=17/"+slat+"/"+slon;
-            Runtime rt = Runtime.getRuntime();
             FXWebViewInSwing webview = new FXWebViewInSwing();
             webview.createAndShowWindow(url);
-//            rt.exec("rundll32 url.dll,FileProtocolHandler " + url).waitFor();
-//        } catch (IOException ioe) {
-//            System.out.println("Fehler");
-//        } catch (InterruptedException ie) {
-//            System.out.println("Fehler");
-//        }
-    }//GEN-LAST:event_btnbestaetigenActionPerformed
 
+    }//GEN-LAST:event_btnbestaetigenActionPerformed
+    private void BrowserKarte(String url){
+        try{
+                 Runtime rt = Runtime.getRuntime();
+                 rt.exec("rundll32 url.dll,FileProtocolHandler " + url).waitFor();
+        } catch (IOException ioe) {
+            System.out.println("Fehler");
+        } catch (InterruptedException ie) {
+            System.out.println("Fehler");
+        }
+        }
     private void btnadresseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadresseActionPerformed
         Karte karte1 = new Karte();
         String wo = txfwoeingabe.getText();

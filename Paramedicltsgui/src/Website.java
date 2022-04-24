@@ -42,6 +42,7 @@ public class Website extends JFrame {
  
         JScrollPane scrollPane = new JScrollPane(editor);     
         JFrame f = new JFrame("Karte");
+        
         f.getContentPane().add(scrollPane);
         f.setSize(4000,1000);
         f.setVisible(true);
