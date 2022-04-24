@@ -18,8 +18,10 @@ chatSocket.onopen = function(e){
 }
 chatSocket.onmessage = function(e) {
     console.log(e);
-    //const data = JSON.parse(e.data);
-    document.getElementById('alarm_display').innerHTML = e.data
+    const data = JSON.parse(e.data);
+    console.log(data);
+    
+    document.getElementById('alarm_text').innerHTML = e.data.was
     document.getElementById('alarm_display').className = "m-4 p-3 bg-success bg-gradient rounded bg-error"
 };
 

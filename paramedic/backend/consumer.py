@@ -1,5 +1,6 @@
 from channels.generic.websocket import WebsocketConsumer
 from asgiref.sync import async_to_sync
+import json 
 
 class AlarmConsumer(WebsocketConsumer):
     def connect(self):
@@ -22,8 +23,13 @@ class AlarmConsumer(WebsocketConsumer):
         pass
     
     def send_update(self, event):
-        self.send({
+        data = {
             "lat": event["lat"],
-            "long": event["long"]
-            })
+            "long": event["long"],
+            "wer" : event["wer"],
+            "was" : event["was"],
+            "wie_viele" : event["wie_viele"]
+            }
+
+        self.send(json.dumps(data))
    

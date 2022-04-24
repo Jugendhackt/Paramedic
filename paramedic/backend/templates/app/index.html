@@ -1,7 +1,7 @@
 {% extends "components/base.html" %}
 {% load static %}
 {% block header%}
-<script src="{%static '/js/worker.js' %}"></script>
+<script src="{%static '/js/main.js' %}"></script>
 
 
 {% endblock header %}
@@ -10,7 +10,7 @@
     <h1 class="p-4 text-light"><strong> Hallo {{ username }}!</strong></h1>    
 </div>
 <div class="m-4 p-3 bg-success bg-gradient rounded" id="alarm_display">
-    <h4><strong>Es liegen gerade keine Meldungen vor.</strong></h2>
+    <h4><strong id="alarm_text">Es liegen gerade keine Meldungen vor.</strong></h2>
 </div>
 <div>
     <div class=" m-4 p-3 bg-gradient bg-warning rounded">
