@@ -28,7 +28,8 @@ class AlarmConsumer(WebsocketConsumer):
             "long": event["long"],
             "wer" : event["wer"],
             "was" : event["was"],
-            "wie_viele" : event["wie_viele"]
+            "wie_viele" : event["wie_viele"],
+            "anmerkungen" : event["anmerkungen"]
             }
 
         self.send(json.dumps(data))

@@ -36,7 +36,8 @@ def trigger_alarm(sender, instance, created, **kwargs):
         "lat": instance.location_lat,
         "wer" : instance.wer,
         "was" : instance.was,
-        "wie_viele" : instance.wie_viele
+        "wie_viele" : instance.wie_viele,
+        "anmerkungen" : instance.additional_information
     })
     #async_to_sync(channel_layer.send)("channel_name", {"test":"test"})
 

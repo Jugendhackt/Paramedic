@@ -22,7 +22,7 @@ chatSocket.onmessage = function(e) {
     console.log(data);
     
     document.getElementById('alarm_text').innerHTML = e.data.was
-    document.getElementById('alarm_display').className = "m-4 p-3 bg-success bg-gradient rounded bg-error"
+    document.getElementById('alarm_display').className = "m-4 p-3 bg-error bg-gradient rounded bg-error"
 };
 
 chatSocket.onclose = function(e) {
