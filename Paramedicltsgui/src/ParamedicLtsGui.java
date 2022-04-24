@@ -45,16 +45,6 @@ public class ParamedicLtsGui extends javax.swing.JFrame {
         cb.addItem(urlid1);
         cb.addItem(urlid2);
         cb.addItem(urlid3);
-//        l4.setVisible(false);
-//        l5.setVisible(false);
-//        l6.setVisible(false);
-//        l7.setVisible(false);
-//        l8.setVisible(false);
-//        txfwoeingabe.setVisible(false);
-//        txfwereingabe.setVisible(false);
-//        txfwaseingabe.setVisible(false);
-//        txfwievieleeingabe.setVisible(false);
-//        txfanmerkungeingabe.setVisible(false);
     }
 
     /**
