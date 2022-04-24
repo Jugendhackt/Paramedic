@@ -9,14 +9,17 @@
 <div class="bg-primary bg-gradient">
     <h1 class="p-4 text-light"><strong> Hallo {{ username }}!</strong></h1>    
 </div>
-<div class="m-4 p-3 bg-success bg-gradient rounded" id="alarm_display">
-    <h4><strong id="alarm_text">Es liegen gerade keine Meldungen vor.</strong></h2>
+<div class="card m-4 p-3 bg-success bg-gradient rounded" id="alarm_display">
+        <div class="card-body">
+            <img id="map_alarm" src="" class="card-img-top" alt="Karte der Einsatzstelle">
+          <h5 class="card-title"><h4><strong id="alarm_text" style="margin-bottom: 0;">Es liegen gerade keine Meldungen vor.</strong></h4></h5>
+          <p class="card-text" id="alarm_info"></p>
+        </div>
+
 </div>
 <div>
     <div class=" m-4 p-3 bg-gradient bg-warning rounded">
         <div class="row">
-
-
         <div class="col-sm">
             <h4><strong>Informationen von</strong></h4>
 
